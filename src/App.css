@@ -15,6 +15,10 @@ body{
   flex-direction: column;
 }
 
+#check{
+  display: none;
+}
+
 nav{
   display: flex;
   flex-direction: row;
@@ -378,6 +382,11 @@ s{
 }
 
 
+.mobileMenu{
+  display: none;
+}
+
+
 
 /*active*/
 
@@ -515,16 +524,55 @@ nav ul li:hover{
     display: block;
   }
 
+
   nav ul{
   display: none;
   }
+
+  .mobileMenu .close{
+    width: 20px;
+    height: 20px;
+    margin-top: 20px;
+    margin-left: 40px;
+  }
+
+
+  #check:checked ~ .mobileMenu{
+   left: 0;
+  }
+
+  .mobileMenu{
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: -500px;
+    z-index: 3;
+    background-color: white;
+    height: 100vh;
+    width: fit-content;
+    padding-right: 90px;
+  }
+
+  nav ul li:hover{
+    border-bottom: none;
+  }
+
+  .mobileMenu ul{
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    height: fit-content;
+  }
+
   
   nav ul li{
     margin-right: 10%;
     list-style: none;
-    color: hsl(219, 9%, 45%);
-    height: 100%;
-    border-bottom: 2px solid hsl(25, 100%, 94%);
+    color: hsl(220, 13%, 13%);
+    font-weight: 700;
+    height: 50px;
+    border: none;
   }
   
   .first{

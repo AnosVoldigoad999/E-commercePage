@@ -97,7 +97,18 @@ export default function App(){
   handleImage={handleImage} />}
   <nav>
   <div className='first'>
-    <img src="/images/icon-menu.svg" alt="menu" className='menu' />
+  <input type='checkbox' id='check' />
+    <label htmlFor='check'><img src="/images/icon-menu.svg" alt="menu" className='menu' /></label>
+  <div className="mobileMenu">
+  <label htmlFor='check'><img src="/images/icon-close.svg" alt="close" className='close' /></label>
+    <ul>
+      <li>Collections</li>
+      <li>Men</li>
+      <li>Women</li>
+      <li>About</li>
+      <li>Contact</li>
+    </ul>
+    </div>
     <img className='logo' alt='logo' src='/images/logo.svg' />
     <ul>
       <li>Collections</li>
