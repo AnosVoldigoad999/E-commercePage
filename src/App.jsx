@@ -5,6 +5,22 @@ export default function App(){
   const [counter, setCounter] = useState(0) 
   const [goods, setGoods] = useState(false)
   const [showCart, setShowCart] = useState(false)
+  const [selectedImage, setSelectedImage] = useState()
+  const [light ,setLight] = useState(false)
+  const[indeX, setIndeX] = useState(0)
+  const [imageThumbnails, setImageThumbnails] = useState([{link:'images/image-product-1-thumbnail.jpg', text:"image1", selected:true}, 
+  {link:'images/image-product-2-thumbnail.jpg', text:"image2", selected:false}, 
+  {link:'images/image-product-3-thumbnail.jpg', text:"image3", selected:false}, 
+  {link:'images/image-product-4-thumbnail.jpg', text:"image4", selected:false} ])
+
+  
+
+  const images = [{link:'images/image-product-1.jpg', text:"image1"}, 
+  {link:'images/image-product-2.jpg', text:"image2"}, 
+  {link:'images/image-product-3.jpg', text:"image3"}, 
+  {link:'images/image-product-4.jpg', text:"image4"} ]
+
+
   function handlePlus(){
     if(counter<100){
       setCounter(counter+1)
@@ -24,7 +40,47 @@ export default function App(){
   }
 
 
+  function handleImage(index, img){
+    setSelectedImage(images[index].link)
+    imageThumbnails.forEach(img=>img.selected=false)
+    img.selected=true
+  }
+
+  function showimg(){
+    setLight(true)
+  }
+
+  function handleMobileBack(){
+    if(indeX-1 < 0){
+      const currentIndex = images.length-1
+      setIndeX(currentIndex)
+      setSelectedImage(images[currentIndex].link)
+    } else{
+      const currentIndex = indeX - 1
+      setIndeX(currentIndex)
+      setSelectedImage(images[currentIndex].link)
+    }
+  }
+
+  function handleMobileNext(){
+    if(indeX+1 >= images.length){
+      const currentIndex = 0
+      setIndeX(currentIndex)
+      setSelectedImage(images[0].link)
+    }else{
+      const currentIndex = indeX + 1
+      setIndeX(currentIndex)
+      setSelectedImage(images[currentIndex].link)
+
+    }
+   
+  }
+
+
   return<>
+  {light && <LightBox setLight={setLight} imageThumbnails={imageThumbnails}
+  selectedImage={selectedImage}
+  handleImage={handleImage} />}
   <nav>
   <div className='first'>
     <img src="/images/icon-menu.svg" alt="menu" className='menu' />
@@ -52,7 +108,7 @@ export default function App(){
             <p>Fall Limited Edition Sneakers</p>
             <span>$125 x {counter} <b>${counter * 125}</b></span>
           </div>
-          <img src="/images/icon-delete.svg" alt="delete" className='delete' onClick={()=>{setGoods(false); setCounter(0)}} />
+          <img src ="/images/icon-delete.svg" alt="delete" className='delete' onClick={()=>{setGoods(false); setCounter(0)}} />
         </div>
         <button>Checkout</button>
         </>
@@ -60,7 +116,16 @@ export default function App(){
       </div>
   <main>
   <div className="pics">
-    <img src="/images/image-product-1.jpg" alt="product" className='product' />
+  <img src={!selectedImage?"/images/image-product-1.jpg":selectedImage} alt="product" className='product' onClick={()=>{showimg()}} />
+    <div className="picspics" style={{backgroundImage: `url(${!selectedImage?"/images/image-product-1.jpg":selectedImage})`}} >
+    <img src="/images/icon-next.svg" alt="back" className='back' onClick={()=>{handleMobileBack()}} />
+    <img src="/images/icon-next.svg" alt="next" className='next' onClick={()=>{handleMobileNext()}} />
+    </div>
+    <div className="bottompics">
+      {imageThumbnails.map((img, index)=>{
+        return <img key={index} src={img.link} alt={img.text} className={img.selected?'bottomimageselected':'bottomimage'} onClick={()=>{handleImage(index, img)}} />
+      })}
+    </div>
   </div>
   <div className="des">
     <h5>SNEAKER COMPANY</h5>
@@ -80,5 +145,24 @@ export default function App(){
     </div>
   </div>
   </main>
+  </>
+}
+
+
+function LightBox ({setLight, selectedImage, imageThumbnails, handleImage}){
+  return<>
+  <div /*onClick={()=>{setLight(false)}}*/ className="lightpics">
+  <div className="scrolls">
+  <img src="/images/icon-next.svg" alt="back" className='back' />
+    <img src={!selectedImage?"/images/image-product-1.jpg":selectedImage} alt="product" className='product' />
+    <img src="/images/icon-next.svg" alt="next" className='next' />
+  </div>
+  <br />
+    <div className="bottompics">
+      {imageThumbnails.map((img, index)=>{
+        return <img key={index} src={img.link} alt={img.text} className={img.selected?'bottomimageselected':'bottomimage'} onClick={()=>{handleImage(index, img)}} />
+      })}
+    </div>
+  </div>
   </>
 }
