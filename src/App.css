@@ -95,12 +95,13 @@ nav ul li{
   height: 50px;
   border-radius: 30px;
   border: 2px solid white;
+  margin-left: 20px;
 }
 
 .cart{
   width: 20px;
   height: 20px;
-  margin-right: 20px;
+
 }
 
 .cartdiv{
@@ -509,16 +510,6 @@ nav ul li:hover{
     border-bottom: none;
   }
   
-  nav span{
-    font-size: 0.5rem;
-    background-color:  hsl(26, 100%, 55%);
-    color: white;
-    border-radius: 10px;
-    position: relative;
-    bottom: 10px;
-    right: 20px;
-    padding: 3px 5px;
-  }
   
   nav .menu{
     display: block;
@@ -613,6 +604,7 @@ nav ul li:hover{
   .cart{
     width: 20px;
     height: 20px;
+    
   }
   
 
@@ -794,7 +786,7 @@ nav ul li:hover{
     border-radius: 10px;
     position: relative;
     bottom: 10px;
-    right: 30px;
+    right: 10px;
     padding: 3px 5px;
   }
 
