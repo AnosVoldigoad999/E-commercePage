@@ -585,7 +585,6 @@ nav ul li:hover{
     display: flex;
     flex-direction: row;
     align-items: center;
-    border: 1px solid red;
   }
   
   .logo{
