@@ -1,6 +1,6 @@
 *{
-  box-sizing: border-box;
   font-family: ksans;
+  box-sizing: border-box;
   transition: 0.3s;
 }
 
@@ -10,6 +10,7 @@
 }
 
 body{
+  font-family: ksans;
   display: flex;
   flex-direction: column;
 }
