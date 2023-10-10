@@ -787,7 +787,16 @@ nav ul li:hover{
     box-shadow: 0 20px 40px hsl(220, 14%, 75%);
   }
   
-
+  nav span{
+    font-size: 0.5rem;
+    background-color:  hsl(26, 100%, 55%);
+    color: white;
+    border-radius: 10px;
+    position: relative;
+    bottom: 10px;
+    right: 30px;
+    padding: 3px 5px;
+  }
 
 
 }
