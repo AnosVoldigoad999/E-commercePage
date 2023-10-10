@@ -55,10 +55,14 @@ export default function App(){
     const currentIndex = images.length-1
     setIndeX(currentIndex)
     setSelectedImage(images[currentIndex].link)
+    imageThumbnails.forEach(img=>img.selected=false)
+    imageThumbnails[currentIndex].selected = true
    } else{
     const currentIndex = indeX - 1
     setIndeX(currentIndex)
     setSelectedImage(images[currentIndex].link)
+    imageThumbnails.forEach(img=>img.selected=false)
+    imageThumbnails[currentIndex].selected = true
    }
   }
 
@@ -67,18 +71,21 @@ export default function App(){
       const currentIndex = 0
       setIndeX(currentIndex)
       setSelectedImage(images[0].link)
+      imageThumbnails.forEach(img=>img.selected=false)
+      imageThumbnails[0].selected = true
     }else{
       const currentIndex = indeX + 1
       setIndeX(currentIndex)
       setSelectedImage(images[currentIndex].link)
-
+      imageThumbnails.forEach(img=>img.selected=false)
+      imageThumbnails[currentIndex].selected = true
     }
    
   }
 
 
   return<>
-  {light && <LightBox setLight={setLight} imageThumbnails={imageThumbnails}
+  {light && <LightBox handleMobileBack={handleMobileBack} handleMobileNext={handleMobileNext} setLight={setLight} imageThumbnails={imageThumbnails}
   selectedImage={selectedImage}
   handleImage={handleImage} />}
   <nav>
@@ -118,8 +125,8 @@ export default function App(){
   <div className="pics">
   <img src={!selectedImage?"/images/image-product-1.jpg":selectedImage} alt="product" className='product' onClick={()=>{showimg()}} />
     <div className="picspics" style={{backgroundImage: `url(${!selectedImage?"/images/image-product-1.jpg":selectedImage})`}} >
-    <img src="/images/icon-next.svg" alt="back" className='back' onClick={()=>{handleMobileBack()}} />
-    <img src="/images/icon-next.svg" alt="next" className='next' onClick={()=>{handleMobileNext()}} />
+    <img src="/images/icon-next.svg" alt="back" className='back' onClick={handleMobileBack} />
+    <img src="/images/icon-next.svg" alt="next" className='next' onClick={handleMobileNext} />
     </div>
     <div className="bottompics">
       {imageThumbnails.map((img, index)=>{
@@ -149,13 +156,18 @@ export default function App(){
 }
 
 
-function LightBox ({setLight, selectedImage, imageThumbnails, handleImage}){
+function LightBox ({setLight, selectedImage, imageThumbnails, handleImage, handleMobileBack, handleMobileNext}){
+  function handleDismiss(e){
+    if(e.target.classList.contains("dismiss")){
+      setLight(false)
+    }
+  }
   return<>
-  <div /*onClick={()=>{setLight(false)}}*/ className="lightpics">
+  <div onClick={handleDismiss} className="lightpics dismiss">
   <div className="scrolls">
-  <img src="/images/icon-next.svg" alt="back" className='back' />
+  <img src="/images/icon-next.svg" alt="back" className='back' onClick={handleMobileBack} />
     <img src={!selectedImage?"/images/image-product-1.jpg":selectedImage} alt="product" className='product' />
-    <img src="/images/icon-next.svg" alt="next" className='next' />
+    <img src="/images/icon-next.svg" alt="next" className='next' onClick={handleMobileNext} />
   </div>
   <br />
     <div className="bottompics">
