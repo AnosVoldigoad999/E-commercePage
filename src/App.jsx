@@ -20,6 +20,11 @@ export default function App(){
   {link:'images/image-product-3.jpg', text:"image3"}, 
   {link:'images/image-product-4.jpg', text:"image4"} ]
 
+  window.addEventListener('scroll', () => {
+    if(showCart===true){
+      setShowCart(false)
+    }
+  });
 
   function handlePlus(){
     if(counter<100){
@@ -65,6 +70,8 @@ export default function App(){
     imageThumbnails[currentIndex].selected = true
    }
   }
+
+ 
 
   function handleMobileNext(){
     if(indeX+1 >= images.length){
