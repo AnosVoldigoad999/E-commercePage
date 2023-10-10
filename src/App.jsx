@@ -51,15 +51,15 @@ export default function App(){
   }
 
   function handleMobileBack(){
-    if(indeX-1 < 0){
-      const currentIndex = images.length-1
-      setIndeX(currentIndex)
-      setSelectedImage(images[currentIndex].link)
-    } else{
-      const currentIndex = indeX - 1
-      setIndeX(currentIndex)
-      setSelectedImage(images[currentIndex].link)
-    }
+   if(indeX-1 <0){
+    const currentIndex = images.length-1
+    setIndeX(currentIndex)
+    setSelectedImage(images[currentIndex].link)
+   } else{
+    const currentIndex = indeX - 1
+    setIndeX(currentIndex)
+    setSelectedImage(images[currentIndex].link)
+   }
   }
 
   function handleMobileNext(){
