@@ -576,7 +576,6 @@ nav ul li:hover{
   }
   
   .first{
-    justify-content: space-between;
     width: 30%;
     height: 54px;
     display: flex;
@@ -598,6 +597,7 @@ nav ul li:hover{
   }
   
   .logo{
+    margin-left: 20px;
     height: 30px;
     width: 80%;
     object-fit: contain;
