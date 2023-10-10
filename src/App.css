@@ -568,18 +568,7 @@ nav ul li:hover{
     height: 20px;
   }
   
-  .cartdiv{
-    position: absolute;
-    right: 100px;
-    top: 70px;
-    /*width: 23%;*/
-    width: 311px;
-    height: 35%;
-    min-height: 225px;
-    float: right;
-    background-color: white;
-    box-shadow: 0 20px 40px hsl(220, 14%, 75%);
-  }
+
   
   .cartdiv button{
     margin-left: 23px;
@@ -737,17 +726,19 @@ nav ul li:hover{
     justify-content: space-between;
   }
   
-  .counter .minus{
-    position: relative;
-    /*margin-right: 50px;*/
-    
+  
+  .cartdiv{
+    position: fixed;
+    right: 5%;
+    top: 70px;
+    /*width: 23%;*/
+    width: 311px;
+    height: 35%;
+    min-height: 225px;
+    float: right;
+    background-color: white;
+    box-shadow: 0 20px 40px hsl(220, 14%, 75%);
   }
-  
-  .counter .plus{
-    /*margin-left: 50px;*/
-  
-  }
-  
   
 
 
