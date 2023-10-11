@@ -1,12 +1,10 @@
 *{
+  font-family: Ksans;
   box-sizing: border-box;
   transition: 0.3s;
 }
 
-@font-face {
-  font-family: inter;
-  src: url(../public/font/Inter/inter.ttf);
-}
+
 
 @font-face {
   font-family: kSans;
@@ -14,7 +12,7 @@
 }
 
 body{
-  font-family: inter, Ksans;
+  font-family: Ksans;
   display: flex;
   flex-direction: column;
 }
@@ -343,7 +341,7 @@ s{
 .des span{
   position: relative;
   bottom: 49px;
-  left: 90px;
+  left: 110px;
   color: hsl(26, 100%, 55%);
   border-radius: 5px;
   background-color: hsl(223, 64%, 98%);
