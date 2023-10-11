@@ -1,16 +1,16 @@
 *{
-  font-family: ksans;
+  font-family: kSans;
   box-sizing: border-box;
   transition: 0.3s;
 }
 
-@font-face{
-  font-family: ksans;
+@font-face {
+  font-family: kSans;
   src: url(../public/font/KumbhSans-VariableFont_YOPQ\,wght.ttf);
 }
 
 body{
-  font-family: ksans;
+  font-family: kSans;
   display: flex;
   flex-direction: column;
 }
