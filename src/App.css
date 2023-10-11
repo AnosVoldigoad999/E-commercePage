@@ -5,12 +5,12 @@
 
 @font-face {
   font-family: inter;
-  src: url(../public/font/Inter/Inter-VariableFont_slnt\,wght.ttf);
+  src: url(../public/font/Inter/Inter-VariableFont_slnt/,wght.ttf);
 }
 
 @font-face {
   font-family: kSans;
-  src: url(../public/font/KumbhSans-VariableFont_YOPQ\,wght.ttf);
+  src: url(../public/font/KumbhSans-VariableFont_YOPQ/,wght.ttf);
 }
 
 body{
