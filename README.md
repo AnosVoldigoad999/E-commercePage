@@ -33,7 +33,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [https://e-commerce-page-tau.vercel.app/](https://e-commerce-page-tau.vercel.app/)
+- Live Site URL: [https://e-commerce-page-tau.vercel.app/](https://e-commerce-page-flame.vercel.app/)
 
 ## My process
 
