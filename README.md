@@ -32,7 +32,7 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
+- Solution URL: [https://www.frontendmentor.io/solutions/ecommerce-product-page-eAMDHvAzlz](https://www.frontendmentor.io/solutions/ecommerce-product-page-eAMDHvAzlz)
 - Live Site URL: [https://e-commerce-page-tau.vercel.app/](https://e-commerce-page-flame.vercel.app/)
 
 ## My process
