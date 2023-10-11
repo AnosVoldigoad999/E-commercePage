@@ -1,7 +1,12 @@
 *{
-  font-family: kSans;
+  font-family: inter, Ksans;
   box-sizing: border-box;
   transition: 0.3s;
+}
+
+@font-face {
+  font-family: inter;
+  src: url(../public/font/Inter/Inter-VariableFont_slnt\,wght.ttf);
 }
 
 @font-face {
@@ -10,7 +15,7 @@
 }
 
 body{
-  font-family: kSans;
+  font-family: inter, Ksans;
   display: flex;
   flex-direction: column;
 }
