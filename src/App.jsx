@@ -189,8 +189,7 @@ function LightBox ({setLight, selectedImage, imageThumbnails, handleImage, handl
     <img src={!selectedImage?"/images/image-product-1.jpg":selectedImage} alt="product" className='product' />
     <img src="/images/icon-next.svg" alt="next" className='next' onClick={handleMobileNext} />
   </div>
-  <br />
-    <div className="bottompics">
+      <div className="bottompics">
       {imageThumbnails.map((img, index)=>{
         return <img key={index} src={img.link} alt={img.text} className={img.selected?'bottomimageselected':'bottomimage'} onClick={()=>{handleImage(index, img)}} />
       })}
