@@ -1,5 +1,6 @@
 import './App.css'
 import {BsCart3} from 'react-icons/bs'
+import {AiOutlineClose} from 'react-icons/ai'
 import { useState } from 'react'
 export default function App(){
   const [counter, setCounter] = useState(0) 
@@ -182,6 +183,7 @@ function LightBox ({setLight, selectedImage, imageThumbnails, handleImage, handl
   }
   return<>
   <div onClick={handleDismiss} className="lightpics dismiss">
+   <AiOutlineClose className='close' onClick={()=>{setLight(false)}} />
   <div className="scrolls">
   <img src="/images/icon-next.svg" alt="back" className='back' onClick={handleMobileBack} />
     <img src={!selectedImage?"/images/image-product-1.jpg":selectedImage} alt="product" className='product' />

@@ -217,7 +217,15 @@ main{
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: hsla(0, 100%, 0%, 60% );
+  background-color: hsla(0, 100%, 0%, 75% );
+}
+
+.lightpics .close{
+  width: 20px;
+  height: 20px;
+  margin-bottom: 40px;
+  margin-left: 30%;
+  color: white;
 }
 
 .lightpics .product{
@@ -366,6 +374,7 @@ s{
   background-color: hsl(223, 64%, 98%) ;
   width: 20%;
   display: flex;
+  padding: 0 10px;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
@@ -390,6 +399,12 @@ s{
 
 
 /*active*/
+
+.close:hover{
+  cursor: pointer;
+  color:  hsl(26, 100%, 55%);
+  transition: 0.2s;
+}
 
 .counter .minus:hover, .plus:hover, button:hover{
   cursor: pointer;
@@ -757,6 +772,7 @@ nav ul li:hover{
     background-color: hsl(223, 64%, 98%) ;
     margin: 0 auto;
     margin-bottom: 20px;
+    
     width: 80%;
     height: 50px;
     display: flex;
@@ -765,6 +781,7 @@ nav ul li:hover{
     justify-content: space-between;
   }
   
+
   
   .cartdiv{
     position: fixed;
