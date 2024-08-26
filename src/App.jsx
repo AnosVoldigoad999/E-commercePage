@@ -47,9 +47,17 @@ export default function App(){
 
 
   function handleImage(index, img){
-    setSelectedImage(images[index].link)
-    imageThumbnails.forEach(img=>img.selected=false)
-    img.selected=true
+    setSelectedImage(images[index].link) //set the selected image state to the link value of the object in the index passed as an argument
+    /*imageThumbnails.forEach(img=>img.selected=false)
+    img.selected=true*/ //ignorre
+    const newImageThumbnails =imageThumbnails.map(IMG=>{ //just for the border color thing showing which image you selected
+      if(IMG===img){
+        return {...IMG, selected:true} //if it matches with the passed img, set its selected key to true
+      }else{
+        return{...IMG, selected:false} //if it doesn't set it to false
+      }
+    })
+    setImageThumbnails(newImageThumbnails)
   }
 
   function showimg(){
@@ -57,36 +65,60 @@ export default function App(){
   }
 
   function handleMobileBack(){
-   if(indeX-1 <0){
-    const currentIndex = images.length-1
-    setIndeX(currentIndex)
-    setSelectedImage(images[currentIndex].link)
-    imageThumbnails.forEach(img=>img.selected=false)
-    imageThumbnails[currentIndex].selected = true
+   if(indeX-1 <0){ //same as "if youre on the first pic and the user still clicks back"
+    const currentIndex = images.length-1 //this value would be the index of the last image
+    setIndeX(currentIndex) //set the state to the index of the last image
+    setSelectedImage(images[currentIndex].link) //set the selected image to the link of the last object(image)
+        const newImageThumbnails =imageThumbnails.map(IMG=>{ //just for the border color thing showing which image you selected
+      if(IMG===imageThumbnails[currentIndex]){
+        return {...IMG, selected:true} //if it matches with the passed img, set its selected key to true
+      }else{
+        return{...IMG, selected:false} //if it doesn't set it to false
+      }
+    })
+    setImageThumbnails(newImageThumbnails) 
    } else{
-    const currentIndex = indeX - 1
-    setIndeX(currentIndex)
+    const currentIndex = indeX - 1 
+    setIndeX(currentIndex) 
     setSelectedImage(images[currentIndex].link)
-    imageThumbnails.forEach(img=>img.selected=false)
-    imageThumbnails[currentIndex].selected = true
+    const newImageThumbnails =imageThumbnails.map(IMG=>{ //just for the border color thing showing which image you selected
+      if(IMG===imageThumbnails[currentIndex]){
+        return {...IMG, selected:true} //if it matches with the passed img, set its selected key to true
+      }else{
+        return{...IMG, selected:false} //if it doesn't set it to false
+      }
+    })
+    setImageThumbnails(newImageThumbnails) 
    }
   }
 
  
 
   function handleMobileNext(){
-    if(indeX+1 >= images.length){
-      const currentIndex = 0
-      setIndeX(currentIndex)
-      setSelectedImage(images[0].link)
-      imageThumbnails.forEach(img=>img.selected=false)
-      imageThumbnails[0].selected = true
+    if(indeX+1 >= images.length){ //if its on the last image and the user still clicks next
+      const currentIndex = 0 //index of the first image
+      setIndeX(currentIndex) 
+      setSelectedImage(images[0].link) //selected image would be the link ofthe first image
+      const newImageThumbnails =imageThumbnails.map(IMG=>{ //just for the border color thing showing which image you selected
+        if(IMG===imageThumbnails[currentIndex]){
+          return {...IMG, selected:true} //if it matches with the passed img, set its selected key to true
+        }else{
+          return{...IMG, selected:false} //if it doesn't set it to false
+        }
+      })
+      setImageThumbnails(newImageThumbnails) 
     }else{
       const currentIndex = indeX + 1
       setIndeX(currentIndex)
       setSelectedImage(images[currentIndex].link)
-      imageThumbnails.forEach(img=>img.selected=false)
-      imageThumbnails[currentIndex].selected = true
+      const newImageThumbnails =imageThumbnails.map(IMG=>{ //just for the border color thing showing which image you selected
+        if(IMG===imageThumbnails[currentIndex]){
+          return {...IMG, selected:true} //if it matches with the passed img, set its selected key to true
+        }else{
+          return{...IMG, selected:false} //if it doesn't set it to false
+        }
+      })
+      setImageThumbnails(newImageThumbnails) 
     }
    
   }
@@ -141,10 +173,10 @@ export default function App(){
         }
       </div>
   <main>
-  <div className="pics">
+  <div  className="pics">
   <img src={!selectedImage?"/images/image-product-1.jpg":selectedImage} alt="product" className='product' onClick={()=>{showimg()}} />
     <div className="picspics" style={{backgroundImage: `url(${!selectedImage?"/images/image-product-1.jpg":selectedImage})`}} >
-    <img src="/images/icon-next.svg" alt="back" className='back' onClick={handleMobileBack} />
+    <img src="/images/icon-next.svg"  alt="back" className='back' onClick={handleMobileBack} />
     <img src="/images/icon-next.svg" alt="next" className='next' onClick={handleMobileNext} />
     </div>
     <div className="bottompics">
@@ -177,7 +209,7 @@ export default function App(){
 
 function LightBox ({setLight, selectedImage, imageThumbnails, handleImage, handleMobileBack, handleMobileNext}){
   function handleDismiss(e){
-    if(e.target.classList.contains("dismiss")){
+    if(e.target.className.includes("dismiss")){
       setLight(false)
     }
   }
